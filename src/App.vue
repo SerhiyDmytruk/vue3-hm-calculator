@@ -20,7 +20,7 @@
         clear();
     }
 
-    enteringFn(e.target.innerText);
+    enteringFn(e.target.dataset.operation);
   }
 
   function enteringFn(data) {
@@ -35,7 +35,6 @@
   }
 
   function summ() {
-    console.log(entering.value);
     operationResult.firstNumber = Number(entering.value.split(reg)[0]);
     operationResult.mathOperation = entering.value.toString().match(reg)[0];
     operationResult.secondNumber = Number(entering.value.split(reg)[1]);
@@ -52,115 +51,184 @@
       
       <div 
         id="entering"
-        class="pt-16 p-5 pb-0 text-white text-right text-3xl bg-indigo-800">{{entering}}</div>
+        class="pt-16 p-5 pb-0 text-white text-right text-3xl bg-indigo-800 min-h-[120px]">{{entering}}</div>
 
       <div 
         id="result" 
         class="p-5 text-white text-right text-3xl bg-indigo-800">
-        = 
-        <textarea class="text-orange-500" v-model="result">2100</textarea>
+        =
+        <textarea class="text-orange-500" v-model="result" cols="39"></textarea>
     </div>
       
     <div class="flex items-stretch bg-indigo-900 h-24">
       <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-        <button
-            @click="clear" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">C</button>
+    
+        <Button 
+          @click="clear"
+          :button-data="'C'"
+          :button-class="`rounded-lg h-20 w-20 flex items-center bg-orange-500 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none`">
+          C
+        </Button>
       </div>
     
-      <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-      </div>
+      <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"></div>
+    
+      <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"></div>
     
       <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-      </div>
-    
-      <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-        <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">÷</button>
+        <Button 
+          @click="clickTobtn"
+          :button-data="'÷'">
+          ÷
+        </Button>
       </div>
     </div>
       
       <div class="flex items-stretch bg-indigo-900 h-24">
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">7</button>
+          <Button 
+              @click="clickTobtn"
+              :button-data="'7'"
+              >
+              7
+          </Button>
         </div>
       
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">8</button>
+
+          <Button 
+              @click="clickTobtn"
+              :button-data="'8'"
+              >
+              8
+          </Button>
         </div>
       
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">9</button>
+          <Button 
+              @click="clickTobtn"
+              :button-data="'9'"
+              >
+              9
+          </Button>
         </div>
       
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">×</button>
+
+          <Button 
+            @click="clickTobtn"
+            :button-data="'*'"
+            >
+            ×
+          </Button>
+
         </div>
       </div>
             
       <div class="flex items-stretch bg-indigo-900 h-24">
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">4</button>
+          <Button 
+              @click="clickTobtn"
+              :button-data="'4'"
+              >
+              4
+            </Button>
+
+          </div>
+      
+        <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
+          <Button 
+              @click="clickTobtn"
+              :button-data="'5'"
+              >
+              5
+          </Button>
         </div>
       
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">5</button>
+          <Button 
+              @click="clickTobtn"
+              :button-data="'6'"
+              >
+              6
+            </Button>
         </div>
       
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">6</button>
-        </div>
-      
-        <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">-</button>
+          <Button 
+              @click="clickTobtn"
+              :button-data="'-'"
+              >
+              -
+            </Button>
         </div>
       </div>
             
       <div class="flex items-stretch bg-indigo-900 h-24">
-          <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-            <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">1</button>
+          <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">          
+            <Button 
+              @click="clickTobtn"
+              :button-data="'1'"
+              >
+              1
+            </Button>
           </div>
         
           <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-            <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">2</button>
+            <Button 
+              @click="clickTobtn"
+              :button-data="'2'"
+              >
+              2
+            </Button>
+          
           </div>
         
           <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-            <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">3</button>
+          
+            <Button 
+              @click="clickTobtn"
+              :button-data="'3'"
+              >
+              3
+            </Button>
           </div>
         
           <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-            <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">+</button>
+       
+            <Button 
+              @click="clickTobtn"
+              :button-data="'+'"
+              >
+              +
+            </Button>
+
           </div>
       </div>
             
 
       <div class="flex items-stretch bg-indigo-900 h-24 mb-4">        
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">0</button>
-        </div>
+            <Button 
+              @click="clickTobtn"
+              :button-data="'0'"
+              >
+              0
+            </Button>
+          </div>
+        <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold"></div>
+      
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
+    
+          <Button 
+            @click="clickTobtn"
+            :button-data="'.'"
+            >
+            . 
+          </Button>
         </div>
       
         <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-          <button
-            @click="clickTobtn" class="rounded-lg h-20 w-20 flex items-center bg-indigo-800 justify-center shadow-lg border-2 border-indigo-700 hover:border-2 hover:border-gray-500 focus:outline-none">.</button>
-        </div>
-      
-        <div class="flex-1 px-2 py-2 justify-center flex items-center text-white text-2xl font-semibold">
-
           <Button 
             @click="summ"
             :button-data="'='"
